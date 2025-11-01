@@ -8,8 +8,7 @@ export default function HomePage() {
     <main className="flex min-h-screen flex-col bg-white text-gray-900">
       <Header />
 
-      {/* HERO */}
-      <section id="home" className="relative isolate overflow-hidden">
+<section id="home" className="relative isolate overflow-hidden min-h-[80vh]">
         <div className="absolute inset-0 -z-10">
           <Image
             src="/images/hero.jpg"
@@ -24,10 +23,10 @@ export default function HomePage() {
 
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 py-24 text-white md:py-32">
           <h1 className="max-w-2xl text-4xl font-extrabold leading-tight md:text-6xl">
-            MMA a Lugano
+            MMA in Lugano
           </h1>
           <p className="max-w-2xl text-lg text-white/90">
-            Allenamenti di gruppo e privati — tecnica reale, ambiente amichevole e coaching professionale.
+            Group and private training — real technique, friendly environment, professional coaching.
           </p>
           <div className="flex flex-wrap gap-3">
             <a
@@ -36,31 +35,29 @@ export default function HomePage() {
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-2.5 text-sm font-bold text-black"
             >
-              <Instagram className="h-4 w-4" /> Seguici su Instagram
+              <Instagram className="h-4 w-4" /> Follow us on Instagram
             </a>
           </div>
         </div>
       </section>
 
-      {/* TESTO CENTRALE */}
       <section id="perche" className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h2 className="text-3xl font-extrabold mb-6">La nostra filosofia</h2>
-        <p className="text-lg text-gray-700 leading-relaxed">
-          La nostra scuola MMA si basa sulla lotta, ci alleniamo insieme con il team Broa BJJ Lugano. 
-          Per chi vuole iniziare da zero, chi ha la base di striking o ha l’obiettivo di essere completo.
+        <h2 className="mb-6 text-3xl font-extrabold">Our philosophy</h2>
+        <p className="text-lg leading-relaxed text-gray-700">
+          Our MMA school is based on grappling; we train together with the Broa BJJ Lugano team.
+          For complete beginners, those with striking basics, or anyone aiming to be well-rounded.
         </p>
       </section>
 
-      {/* INDIRIZZO + MAPPA */}
       <section id="contatti" className="border-y bg-gray-50">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 py-16 md:grid-cols-2">
           <div>
-            <h2 className="text-3xl font-extrabold">Dove siamo</h2>
+            <h2 className="text-3xl font-extrabold">Where we are</h2>
             <p className="mt-2 text-gray-700">
-              Presso <span className="font-semibold">@broabjj.lugano</span>
+              At <span className="font-semibold">@broabjj.lugano</span>
               <br />
               <span className="inline-flex items-center gap-2 text-gray-800">
-                <MapPin className="h-5 w-5" /> Via Landriani 7, 6900 Lugano, Svizzera
+                <MapPin className="h-5 w-5" /> Via Landriani 7, 6900 Lugano, Switzerland
               </span>
             </p>
             <div className="mt-6">
@@ -70,14 +67,14 @@ export default function HomePage() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-2xl bg-black px-5 py-2.5 text-sm font-semibold text-white"
               >
-                <Instagram className="h-4 w-4" /> Scrivici su Instagram
+                <Instagram className="h-4 w-4" /> Message us on Instagram
               </a>
             </div>
           </div>
 
           <div className="overflow-hidden rounded-2xl shadow">
             <iframe
-              title="Mappa MMA Lugano"
+              title="MMA Lugano Map"
               src="https://www.google.com/maps?q=Via%20Landriani%207,%206900%20Lugano&output=embed"
               width="100%"
               height="320"

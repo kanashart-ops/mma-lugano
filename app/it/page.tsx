@@ -8,8 +8,8 @@ export default function HomePage() {
     <main className="flex min-h-screen flex-col bg-white text-gray-900">
       <Header />
 
-      {/* HERO */}
-      <section id="home" className="relative isolate overflow-hidden">
+      {/* HERO — одинаковый во всех локалях */}
+      <section id="home" className="relative isolate overflow-hidden min-h-[80vh]">
         <div className="absolute inset-0 -z-10">
           <Image
             src="/images/hero.jpg"
@@ -22,7 +22,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black/60" />
         </div>
 
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 py-24 text-white md:py-32">
+        <div className="relative mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-center gap-6 px-4 text-white">
           <h1 className="max-w-2xl text-4xl font-extrabold leading-tight md:text-6xl">
             MMA a Lugano
           </h1>
@@ -44,9 +44,9 @@ export default function HomePage() {
 
       {/* TESTO CENTRALE */}
       <section id="perche" className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h2 className="text-3xl font-extrabold mb-6">La nostra filosofia</h2>
-        <p className="text-lg text-gray-700 leading-relaxed">
-          La nostra scuola MMA si basa sulla lotta, ci alleniamo insieme con il team Broa BJJ Lugano. 
+        <h2 className="mb-6 text-3xl font-extrabold">La nostra filosofia</h2>
+        <p className="text-lg leading-relaxed text-gray-700">
+          La nostra scuola MMA si basa sulla lotta, ci alleniamo insieme con il team Broa BJJ Lugano.
           Per chi vuole iniziare da zero, chi ha la base di striking o ha l’obiettivo di essere completo.
         </p>
       </section>

@@ -1,68 +1,119 @@
 "use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X, Instagram } from "lucide-react";
 
+const LABELS = {
+  it: { home: "Home", why: "Perché noi", contact: "Contatti", ig: "Instagram" },
+  en: { home: "Home", why: "Why us",     contact: "Contacts", ig: "Instagram" },
+  ru: { home: "Главная", why: "Почему мы", contact: "Контакты", ig: "Instagram" },
+} as const;
+
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname() || "/";
+
+  // определяем локаль из URL
+  const currentLocale = (pathname.split("/")[1] || "it") as keyof typeof LABELS;
+  const pathWithoutLocale = pathname.replace(/^\/(it|en|ru)/, "") || "";
+
+  const labels = LABELS[currentLocale];
+
+  const locales = [
+    { code: "it", label: "IT" },
+    { code: "en", label: "EN" },
+    { code: "ru", label: "RU" },
+  ];
 
   return (
     <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Link href="#home" className="text-lg font-extrabold tracking-tight">
+        <Link href={`/${currentLocale}`} className="text-lg font-extrabold tracking-tight">
           MMA Lugano
         </Link>
 
+        {/* Desktop nav */}
         <nav className="hidden items-center gap-6 md:flex">
-          <Link href="#home" className="text-sm font-medium hover:text-black">
-            Home
+          <Link href={`/${currentLocale}#home`} className="text-sm font-medium hover:text-black">
+            {labels.home}
           </Link>
-          <Link href="#perche" className="text-sm font-medium hover:text-black">
-            Perché noi
+          <Link href={`/${currentLocale}#perche`} className="text-sm font-medium hover:text-black">
+            {labels.why}
           </Link>
-          <Link href="#contatti" className="text-sm font-medium hover:text-black">
-            Contatti
+          <Link href={`/${currentLocale}#contatti`} className="text-sm font-medium hover:text-black">
+            {labels.contact}
           </Link>
+
           <a
             href="https://instagram.com/mmalugano"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-2xl border px-3 py-2 text-sm font-semibold"
           >
-            <Instagram className="h-4 w-4" /> Instagram
+            <Instagram className="h-4 w-4" /> {labels.ig}
           </a>
+
+          {/* Language switch */}
+          <div className="flex items-center gap-2 border-l pl-4">
+            {locales.map((loc) => (
+              <Link
+                key={loc.code}
+                href={`/${loc.code}${pathWithoutLocale}`}
+                className={`text-sm ${
+                  loc.code === currentLocale ? "font-bold text-black" : "text-gray-500 hover:text-black"
+                }`}
+              >
+                {loc.label}
+              </Link>
+            ))}
+          </div>
         </nav>
 
-        <button
-          className="md:hidden"
-          onClick={() => setOpen((s) => !s)}
-          aria-label="Apri menu"
-        >
+        {/* Mobile toggle */}
+        <button className="md:hidden" onClick={() => setOpen((s) => !s)} aria-label="Apri menu">
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
+      {/* Mobile menu */}
       {open && (
         <div className="border-t bg-white md:hidden">
           <div className="mx-auto flex max-w-6xl flex-col px-4 py-2">
-            <Link href="#home" className="py-2 text-base font-medium" onClick={() => setOpen(false)}>
-              Home
+            <Link href={`/${currentLocale}#home`} className="py-2" onClick={() => setOpen(false)}>
+              {labels.home}
             </Link>
-            <Link href="#perche" className="py-2 text-base font-medium" onClick={() => setOpen(false)}>
-              Perché noi
+            <Link href={`/${currentLocale}#perche`} className="py-2" onClick={() => setOpen(false)}>
+              {labels.why}
             </Link>
-            <Link href="#contatti" className="py-2 text-base font-medium" onClick={() => setOpen(false)}>
-              Contatti
+            <Link href={`/${currentLocale}#contatti`} className="py-2" onClick={() => setOpen(false)}>
+              {labels.contact}
             </Link>
             <a
               href="https://instagram.com/mmalugano"
               target="_blank"
               rel="noreferrer"
-              className="py-2 text-base font-semibold"
+              className="py-2 font-semibold"
               onClick={() => setOpen(false)}
             >
-              Instagram
+              {labels.ig}
             </a>
+
+            <div className="mt-3 flex gap-3 border-t pt-3">
+              {locales.map((loc) => (
+                <Link
+                  key={loc.code}
+                  href={`/${loc.code}${pathWithoutLocale}`}
+                  className={`text-sm ${
+                    loc.code === currentLocale ? "font-bold text-black" : "text-gray-500 hover:text-black"
+                  }`}
+                  onClick={() => setOpen(false)}
+                >
+                  {loc.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       )}
