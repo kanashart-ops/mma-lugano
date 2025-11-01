@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Instagram, MapPin, Phone } from "lucide-react";
+import { Instagram, MapPin } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -46,12 +46,6 @@ export default function HomePage() {
             >
               WhatsApp
             </a>
-            <a
-              href="tel:+41799619179"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/60 px-5 py-2.5 text-sm font-semibold text-white"
-            >
-              <Phone className="h-4 w-4" /> +41 79 961 91 79
-            </a>
           </div>
         </div>
       </section>
@@ -78,7 +72,7 @@ export default function HomePage() {
               На базе <span className="font-semibold">@broabjj.lugano</span>
               <br />
               <span className="inline-flex items-center gap-2 text-gray-800">
-                <MapPin className="h-5 w-5" /> Via Landriani 7, 6900 Lugano, Svizzera
+                <MapPin className="h-5 w-5" /> Via Landriani 7, 6900 Lugano, Швейцария
               </span>
             </p>
             <div className="mt-6 space-y-3">
