@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Instagram, MapPin } from "lucide-react";
+import { Instagram, MapPin, Phone } from "lucide-react";
 
 export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col bg-white text-gray-900">
       <Header />
 
-      {/* HERO — одинаковый во всех локалях */}
+      {/* HERO */}
       <section id="home" className="relative isolate overflow-hidden min-h-[80vh]">
         <div className="absolute inset-0 -z-10">
           <Image
@@ -23,31 +23,49 @@ export default function HomePage() {
         </div>
 
         <div className="relative mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-center gap-6 px-4 text-white">
-          <h1 className="max-w-2xl text-4xl font-extrabold leading-tight md:text-6xl">
+          <h1 className="text-5xl font-extrabold leading-tight md:text-7xl">
             MMA a Lugano
           </h1>
-          <p className="max-w-2xl text-lg text-white/90">
-            Allenamenti di gruppo e privati — tecnica reale, ambiente amichevole e coaching professionale.
+          <p className="text-xl text-white/90 font-light">
+            Allenamenti di gruppo e privati
           </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap items-center gap-4 mt-4">
             <a
               href="https://instagram.com/mmalugano"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-2.5 text-sm font-bold text-black"
             >
-              <Instagram className="h-4 w-4" /> Seguici su Instagram
+              <Instagram className="h-4 w-4" /> Instagram
+            </a>
+            <a
+              href="https://wa.me/41799619179"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-2xl bg-green-500 px-5 py-2.5 text-sm font-bold text-white"
+            >
+              WhatsApp
+            </a>
+            <a
+              href="tel:+41799619179"
+              className="inline-flex items-center gap-2 rounded-2xl border border-white/60 px-5 py-2.5 text-sm font-semibold text-white"
+            >
+              <Phone className="h-4 w-4" /> +41 79 961 91 79
             </a>
           </div>
         </div>
       </section>
 
-      {/* TESTO CENTRALE */}
-      <section id="perche" className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h2 className="mb-6 text-3xl font-extrabold">La nostra filosofia</h2>
+      {/* FILOSOFIA */}
+      <section id="perche" className="mx-auto max-w-4xl px-4 py-20 text-center">
+        <h2 className="mb-6 text-3xl font-extrabold">Filosofia</h2>
         <p className="text-lg leading-relaxed text-gray-700">
-          La nostra scuola MMA si basa sulla lotta, ci alleniamo insieme con il team Broa BJJ Lugano.
-          Per chi vuole iniziare da zero, chi ha la base di striking o ha l’obiettivo di essere completo.
+          Il nostro team MMA si basa sulla lotta e ci si allena insieme con il team
+          <strong> Broa BJJ Lugano</strong>. Per chi vuole iniziare da zero, chi ha la base
+          di striking o ha l’obiettivo di essere completo.
+        </p>
+        <p className="mt-4 text-lg leading-relaxed text-gray-700">
+          Per chi vuole allenarsi a livello agonistico e per chi vuole allenarsi per sé stesso.
         </p>
       </section>
 
@@ -63,7 +81,7 @@ export default function HomePage() {
                 <MapPin className="h-5 w-5" /> Via Landriani 7, 6900 Lugano, Svizzera
               </span>
             </p>
-            <div className="mt-6">
+            <div className="mt-6 space-y-3">
               <a
                 href="https://instagram.com/mmalugano"
                 target="_blank"
@@ -71,6 +89,14 @@ export default function HomePage() {
                 className="inline-flex items-center gap-2 rounded-2xl bg-black px-5 py-2.5 text-sm font-semibold text-white"
               >
                 <Instagram className="h-4 w-4" /> Scrivici su Instagram
+              </a>
+              <a
+                href="https://wa.me/41799619179"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-2xl bg-green-600 px-5 py-2.5 text-sm font-semibold text-white"
+              >
+                WhatsApp
               </a>
             </div>
           </div>
